@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>废土终端 · Wasteland Nexus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scanline"></div>
+  <main class="shell">
+    <header class="masthead">
+      <div class="logo">
+        <svg class="logo__icon" viewBox="0 0 64 64" aria-hidden="true">
+          <path class="logo__outline" d="M32 6.5L52.5 18v28L32 57.5 11.5 46V18z" />
+          <path class="logo__mark" d="M20 20h6l18 24V20h6v24h-6l-18-24v24h-6z" />
+        </svg>
+        <span class="label">Nexus</span>
+      </div>
+      <nav class="nav">
+        <a href="#intel">情报</a>
+        <a href="#factions">派系</a>
+        <a href="#missions">任务</a>
+        <a href="#contact">联络</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="kicker">2037 · 崩塌之后</p>
+        <h1 class="glitch" data-text="废土终端">废土终端</h1>
+        <p class="lede">
+          在沙尘与辐射覆盖的地表之下，城市残骸隐藏着尚未熄灭的希望。
+          Wasteland Nexus 为游荡者提供庇护、情报与补给，让抵抗火种继续燃烧。
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#missions">接入任务</a>
+          <a class="btn btn--ghost" href="#intel">浏览情报</a>
+        </div>
+      </div>
+      <div class="hero__panel">
+        <div class="panel__title">环境读数</div>
+        <div class="panel__grid">
+          <div class="panel__card">
+            <span class="panel__metric">辐射指数</span>
+            <span class="panel__value">742 μSv</span>
+            <span class="panel__trend trend--rise">↑ 增长</span>
+          </div>
+          <div class="panel__card">
+            <span class="panel__metric">风暴级别</span>
+            <span class="panel__value">黑幕级</span>
+            <span class="panel__trend trend--alert">⚠ 沙尘</span>
+          </div>
+          <div class="panel__card">
+            <span class="panel__metric">能源储量</span>
+            <span class="panel__value">67%</span>
+            <span class="panel__trend trend--steady">→ 稳定</span>
+          </div>
+          <div class="panel__card">
+            <span class="panel__metric">补给车队</span>
+            <span class="panel__value">ETA 02:16</span>
+            <span class="panel__trend trend--rise">↑ 在途</span>
+          </div>
+        </div>
+        <div class="panel__footer">信号校准完成 · 频道 88.9 MHz</div>
+      </div>
+    </section>
+
+    <section id="intel" class="intel">
+      <h2>废土情报</h2>
+      <div class="intel__grid">
+        <article class="intel__card">
+          <h3>昏暗灯塔</h3>
+          <p>旧世界发电站重新点燃，只需两位工程师即可恢复 40% 区域供能。</p>
+          <span class="intel__tag">能源</span>
+        </article>
+        <article class="intel__card">
+          <h3>地表回声</h3>
+          <p>南部信号塔截获的广播暗示有未知派系在收集 AI 核心。</p>
+          <span class="intel__tag">通讯</span>
+        </article>
+        <article class="intel__card">
+          <h3>夜行者交易</h3>
+          <p>流浪商队愿以 5 单位滤芯换取任何完好的无人机零件。</p>
+          <span class="intel__tag">贸易</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="factions" class="factions">
+      <h2>幸存派系</h2>
+      <div class="factions__list">
+        <div class="faction">
+          <h3>灰烬守望</h3>
+          <p>由前守卫军与民间科学家组成，致力于守护地下档案馆。</p>
+        </div>
+        <div class="faction">
+          <h3>黑沙联结</h3>
+          <p>掌握废土运输网络，以高危换取稀缺资源。</p>
+        </div>
+        <div class="faction">
+          <h3>电磁之环</h3>
+          <p>信奉机器复苏，专注回收旧世界 AI 系统并进行改造。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="missions" class="missions">
+      <h2>当前任务</h2>
+      <ul class="missions__list">
+        <li>
+          <span class="missions__title">护送滤芯车队</span>
+          <span class="missions__status status--critical">高危</span>
+          <span class="missions__detail">路线：北门 → 雾斩谷</span>
+        </li>
+        <li>
+          <span class="missions__title">回收无人机黑匣子</span>
+          <span class="missions__status status--normal">标准</span>
+          <span class="missions__detail">信标：N-22.45 · E-118.90</span>
+        </li>
+        <li>
+          <span class="missions__title">引导避难民众</span>
+          <span class="missions__status status--urgent">紧急</span>
+          <span class="missions__detail">限时：04:30 内抵达地铁线</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer id="contact" class="footer">
+      <div class="footer__comms">
+        <h2>联络终端</h2>
+        <p>开放频道：加密频率 5C-17 · 呼号 WN-δ</p>
+      </div>
+      <form class="footer__form">
+        <label for="call-sign">呼号</label>
+        <input id="call-sign" type="text" placeholder="输入呼号">
+
+        <label for="message">讯息</label>
+        <textarea id="message" rows="3" placeholder="简述求援或情报"></textarea>
+
+        <button type="submit" class="btn btn--primary">发送</button>
+      </form>
+    </footer>
+  </main>
+</body>
+</html>
