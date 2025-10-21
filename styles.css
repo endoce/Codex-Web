@@ -82,14 +82,24 @@ body::before {
   letter-spacing: 0.2em;
 }
 
-.logo .glyph {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 18px rgba(230, 136, 47, 0.45);
+.logo__icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(230, 136, 47, 0.35));
+}
+
+.logo__outline {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  opacity: 0.8;
+}
+
+.logo__mark {
+  fill: var(--accent);
+  opacity: 0.9;
 }
 
 .nav {
