@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文本可视化 · Wasteland Nexus</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//Dg4O/0W0//9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv8ODg7/Dg4O/0W0//8ODg7/RbT//w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv9FtP//RbT//0W0//8ODg7/Dg4O/w4ODv9FtP//Dg4O/0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//Dg4O/w4ODv8ODg7/RbT//0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv8ODg7/Dg4O/0W0//9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv9FtP//RbT//0W0//8ODg7/Dg4O/w4ODv9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//Dg4O/w4ODv8ODg7/RbT//w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv8ODg7/RbT//0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv9FtP//RbT//0W0//8ODg7/Dg4O/0W0//9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//Dg4O/0W0//8ODg7/RbT//w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv9FtP//Dg4O/0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//RbT//0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scanline"></div>
+  <main class="shell">
+    <header class="masthead">
+      <div class="logo">
+        <svg class="logo__icon" viewBox="0 0 64 64" aria-hidden="true">
+          <path class="logo__outline" d="M32 6.5L52.5 18v28L32 57.5 11.5 46V18z" />
+          <path class="logo__mark" d="M20 20h6l18 24V20h6v24h-6l-18-24v24h-6z" />
+        </svg>
+        <span class="label">Nexus</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">返回主终端</a>
+      </nav>
+    </header>
+
+    <section class="hero hero--compact">
+      <div class="hero__copy">
+        <p class="kicker">子终端 · 文本矩阵</p>
+        <h1 class="glitch" data-text="文本可视化">文本可视化</h1>
+        <p class="lede">
+          将回收的通讯记录、广播片段与情报文件转换成可视数据流，协助巡逻队迅速洞察异常。
+        </p>
+      </div>
+    </section>
+
+    <section class="intel intel--visualizer">
+      <h2>模块一览</h2>
+      <div class="intel__grid">
+        <article class="intel__card">
+          <h3>频谱扫描</h3>
+          <p>解析音频波形，自动标注疑似干扰或隐藏信号。</p>
+          <span class="intel__tag">信号</span>
+        </article>
+        <article class="intel__card">
+          <h3>语义聚合</h3>
+          <p>将海量文本归纳为主题簇，突出关键实体与矛盾点。</p>
+          <span class="intel__tag">语义</span>
+        </article>
+        <article class="intel__card">
+          <h3>异常追踪</h3>
+          <p>在时间轴上标记突发事件，追踪事件链条与影响范围。</p>
+          <span class="intel__tag">监控</span>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer footer--centered">
+      <div class="footer__comms">
+        <h2>部署状态</h2>
+        <p>矩阵节点：东区 · 状态良好 · 最后同步 17:42</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
