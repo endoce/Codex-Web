@@ -143,6 +143,15 @@ body::before {
   align-items: stretch;
 }
 
+.hero--compact {
+  grid-template-columns: minmax(0, 1fr);
+  padding: 2rem clamp(0rem, 4vw, 1.5rem);
+}
+
+.hero--compact .hero__copy {
+  max-width: 640px;
+}
+
 .hero__copy {
   display: flex;
   flex-direction: column;
@@ -349,6 +358,14 @@ section > h2 {
   gap: 1.5rem;
 }
 
+.intel--visualizer {
+  gap: 2rem;
+}
+
+.intel--visualizer .intel__card {
+  min-height: 180px;
+}
+
 .intel__card {
   background: rgba(20, 18, 16, 0.8);
   border: 1px solid rgba(230, 136, 47, 0.25);
@@ -480,6 +497,20 @@ section > h2 {
   background: rgba(12, 12, 11, 0.85);
   border: 1px solid rgba(230, 136, 47, 0.2);
   border-radius: 1.25rem;
+}
+
+.footer--centered {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  text-align: center;
+}
+
+.footer--centered .footer__comms {
+  max-width: 480px;
+}
+
+.footer--centered .footer__form {
+  display: none;
 }
 
 .footer__comms h2 {
