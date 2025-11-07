@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信号译码 · Wasteland Nexus</title>
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//Dg4O/0W0//9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv8ODg7/Dg4O/0W0//8ODg7/RbT//w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv9FtP//RbT//0W0//8ODg7/Dg4O/w4ODv9FtP//Dg4O/0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//Dg4O/w4ODv8ODg7/RbT//0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv8ODg7/Dg4O/0W0//9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//Dg4O/w4ODv8ODg7/RbT//w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv8ODg7/RbT//0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv9FtP//RbT//0W0//8ODg7/Dg4O/0W0//9FtP//Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//Dg4O/0W0//8ODg7/RbT//w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/0W0//9FtP//RbT//w4ODv9FtP//Dg4O/0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/RbT//0W0//9FtP//RbT//0W0//8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/Dg4O/w4ODv8ODg7/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scanline"></div>
+  <main class="shell">
+    <header class="masthead">
+      <div class="logo">
+        <svg class="logo__icon" viewBox="0 0 64 64" aria-hidden="true">
+          <path class="logo__outline" d="M32 6.5L52.5 18v28L32 57.5 11.5 46V18z" />
+          <path class="logo__mark" d="M20 20h6l18 24V20h6v24h-6l-18-24v24h-6z" />
+        </svg>
+        <span class="label">Nexus</span>
+      </div>
+      <a class="btn btn--ghost" href="index.html">返回主终端</a>
+    </header>
+
+    <section class="decoder">
+      <div class="decoder__header">
+        <p class="kicker">档案室 · 字节重组</p>
+        <h1>信号译码控制台</h1>
+        <p class="lede">输入任何字符流，系统将以更易辨识的色彩呈现不同类型的字符，以便快速检索与校对。</p>
+      </div>
+
+      <div class="decoder__console">
+        <label class="decoder__label" for="raw-input">输入原始信号</label>
+        <textarea
+          id="raw-input"
+          class="decoder__textarea"
+          rows="3"
+          placeholder="在此粘贴或输入需要分析的文本片段……"></textarea>
+        <div class="decoder__actions">
+          <button type="button" id="decode-button" class="btn btn--primary">译码信号</button>
+          <span class="decoder__hint">大写 / 小写 / 数字 / 特殊符号将以不同色彩显示</span>
+        </div>
+      </div>
+
+      <div class="decoder__legend" aria-hidden="true">
+        <span class="decoder__legend-title">类别标识</span>
+        <ul class="decoder__legend-list">
+          <li class="decoder__legend-item"><span class="token token--upper">A</span><span>大写</span></li>
+          <li class="decoder__legend-item"><span class="token token--lower">a</span><span>小写</span></li>
+          <li class="decoder__legend-item"><span class="token token--digit">0</span><span>数字</span></li>
+          <li class="decoder__legend-item"><span class="token token--symbol">#</span><span>符号</span></li>
+          <li class="decoder__legend-item"><span class="token token--space">␠</span><span>空白</span></li>
+        </ul>
+      </div>
+
+      <div class="decoder__output" aria-live="polite">
+        <div class="decoder__output-header">译码结果</div>
+        <div id="formatted-output" class="decoder__result" tabindex="0"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const input = document.getElementById('raw-input');
+    const button = document.getElementById('decode-button');
+    const output = document.getElementById('formatted-output');
+
+    const classifyChar = (char) => {
+      if (/[A-Z]/.test(char)) return 'token--upper';
+      if (/[a-z]/.test(char)) return 'token--lower';
+      if (/[0-9]/.test(char)) return 'token--digit';
+      if (char.trim() === '') return 'token--space';
+      return 'token--symbol';
+    };
+
+    const renderFormattedText = (text) => {
+      if (!text) {
+        output.innerHTML = '<span class="decoder__placeholder">译码内容将在此显示。</span>';
+        return;
+      }
+
+      const fragments = Array.from(text).map((char) => {
+        const tokenClass = classifyChar(char);
+
+        if (char === '\r') {
+          return '';
+        }
+
+        if (char === '\n') {
+          return '<span class="token token--space token--newline" title="换行">↵</span>';
+        }
+
+        if (char === '\t') {
+          return '<span class="token token--space token--tab" title="制表符">⇥</span>';
+        }
+
+        const safeChar =
+          char === '<' ? '&lt;' :
+          char === '>' ? '&gt;' :
+          char === '&' ? '&amp;' :
+          char === '"' ? '&quot;' :
+          char === "'" ? '&#39;' :
+          char === ' ' ? '␠' :
+          char;
+
+        return `<span class="token ${tokenClass}">${safeChar}</span>`;
+      });
+
+      output.innerHTML = fragments.join('');
+    };
+
+    button.addEventListener('click', () => {
+      renderFormattedText(input.value);
+      output.focus({ preventScroll: true });
+    });
+
+    input.addEventListener('input', () => {
+      renderFormattedText(input.value);
+    });
+
+    renderFormattedText('');
+  </script>
+</body>
+</html>
