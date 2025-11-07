@@ -45,6 +45,17 @@
         </div>
       </div>
 
+      <div class="decoder__legend" aria-hidden="true">
+        <span class="decoder__legend-title">类别标识</span>
+        <ul class="decoder__legend-list">
+          <li class="decoder__legend-item"><span class="token token--upper">A</span><span>大写</span></li>
+          <li class="decoder__legend-item"><span class="token token--lower">a</span><span>小写</span></li>
+          <li class="decoder__legend-item"><span class="token token--digit">0</span><span>数字</span></li>
+          <li class="decoder__legend-item"><span class="token token--symbol">#</span><span>符号</span></li>
+          <li class="decoder__legend-item"><span class="token token--space">␠</span><span>空白</span></li>
+        </ul>
+      </div>
+
       <div class="decoder__output" aria-live="polite">
         <div class="decoder__output-header">译码结果</div>
         <div id="formatted-output" class="decoder__result" tabindex="0"></div>
@@ -73,24 +84,27 @@
 
       const fragments = Array.from(text).map((char) => {
         const tokenClass = classifyChar(char);
+
+        if (char === '\r') {
+          return '';
+        }
+
+        if (char === '\n') {
+          return '<span class="token token--space token--newline" title="换行">↵</span>';
+        }
+
+        if (char === '\t') {
+          return '<span class="token token--space token--tab" title="制表符">⇥</span>';
+        }
+
         const safeChar =
           char === '<' ? '&lt;' :
           char === '>' ? '&gt;' :
           char === '&' ? '&amp;' :
           char === '"' ? '&quot;' :
           char === "'" ? '&#39;' :
-          char === '\n' ? '<span class="token token--space">↵</span><br>' :
-          char === '\r' ? '' :
-          char === '\t' ? '<span class="token token--space">⇥</span>' :
+          char === ' ' ? '␠' :
           char;
-
-        if (char === '\n' || char === '\t') {
-          return safeChar;
-        }
-
-        if (char.trim() === '') {
-          return `<span class="token ${tokenClass}">${char === ' ' ? '·' : safeChar}</span>`;
-        }
 
         return `<span class="token ${tokenClass}">${safeChar}</span>`;
       });
