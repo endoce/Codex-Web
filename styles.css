@@ -605,41 +605,6 @@ section > h2 {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
 }
 
-.decoder__sigil {
-  width: 4.75rem;
-  height: 4.75rem;
-  justify-self: start;
-  align-self: start;
-  filter: drop-shadow(0 0 22px rgba(230, 136, 47, 0.45)) drop-shadow(0 0 8px rgba(255, 222, 150, 0.35));
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.decoder__sigil-core {
-  stroke: rgba(255, 215, 160, 0.55);
-  stroke-width: 3;
-}
-
-.decoder__sigil-ring {
-  fill: none;
-  stroke: rgba(141, 78, 21, 0.95);
-  stroke-width: 4;
-  paint-order: stroke;
-}
-
-.decoder__sigil-glyph {
-  fill: rgba(255, 166, 66, 0.95);
-  stroke: rgba(59, 33, 14, 0.9);
-  stroke-width: 2.4;
-}
-
-.decoder__sigil-scratch {
-  fill: none;
-  stroke: rgba(255, 228, 179, 0.6);
-  stroke-width: 2.2;
-  stroke-dasharray: 4 7;
-}
-
 .decoder__header {
   display: grid;
   gap: 0.75rem;
