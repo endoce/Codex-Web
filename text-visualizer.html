@@ -37,6 +37,7 @@
           placeholder="在此粘贴或输入需要分析的文本片段……"></textarea>
         <div class="decoder__actions">
           <button type="button" id="decode-button" class="btn btn--primary">译码信号</button>
+          <button type="button" id="clear-button" class="btn btn--ghost">清空输入</button>
           <span class="decoder__hint">大写 / 小写 / 数字 / 特殊符号将以不同色彩显示</span>
         </div>
       </div>
@@ -62,50 +63,65 @@
   <script>
     const input = document.getElementById('raw-input');
     const button = document.getElementById('decode-button');
+    const clearButton = document.getElementById('clear-button');
     const output = document.getElementById('formatted-output');
 
+    const upperPattern = /\p{Lu}/u;
+    const lowerPattern = /\p{Ll}/u;
+    const digitPattern = /\p{Nd}/u;
+
     const classifyChar = (char) => {
-      if (/[A-Z]/.test(char)) return 'token--upper';
-      if (/[a-z]/.test(char)) return 'token--lower';
-      if (/[0-9]/.test(char)) return 'token--digit';
+      if (upperPattern.test(char)) return 'token--upper';
+      if (lowerPattern.test(char)) return 'token--lower';
+      if (digitPattern.test(char)) return 'token--digit';
       if (char.trim() === '') return 'token--space';
       return 'token--symbol';
     };
 
+    const createToken = (text, tokenClass, title) => {
+      const token = document.createElement('span');
+      token.className = `token ${tokenClass}`;
+      if (title) {
+        token.title = title;
+      }
+      token.textContent = text;
+      return token;
+    };
+
     const renderFormattedText = (text) => {
+      output.textContent = '';
+
       if (!text) {
-        output.innerHTML = '<span class="decoder__placeholder">译码内容将在此显示。</span>';
+        const placeholder = document.createElement('span');
+        placeholder.className = 'decoder__placeholder';
+        placeholder.textContent = '译码内容将在此显示。';
+        output.append(placeholder);
         return;
       }
 
-      const fragments = Array.from(text).map((char) => {
+      const fragment = document.createDocumentFragment();
+
+      Array.from(text).forEach((char) => {
         const tokenClass = classifyChar(char);
 
         if (char === '\r') {
-          return '';
+          return;
         }
 
         if (char === '\n') {
-          return '<span class="token token--space token--newline" title="换行">↵</span>';
+          fragment.append(createToken('↵', 'token--space token--newline', '换行'));
+          return;
         }
 
         if (char === '\t') {
-          return '<span class="token token--space token--tab" title="制表符">⇥</span>';
+          fragment.append(createToken('⇥', 'token--space token--tab', '制表符'));
+          return;
         }
 
-        const safeChar =
-          char === '<' ? '&lt;' :
-          char === '>' ? '&gt;' :
-          char === '&' ? '&amp;' :
-          char === '"' ? '&quot;' :
-          char === "'" ? '&#39;' :
-          char === ' ' ? '␠' :
-          char;
-
-        return `<span class="token ${tokenClass}">${safeChar}</span>`;
+        fragment.append(createToken(char === ' ' ? '␠' : char, tokenClass));
       });
 
-      output.innerHTML = fragments.join('');
+      output.append(fragment);
     };
 
     button.addEventListener('click', () => {
@@ -115,6 +131,12 @@
 
     input.addEventListener('input', () => {
       renderFormattedText(input.value);
+    });
+
+    clearButton.addEventListener('click', () => {
+      input.value = '';
+      renderFormattedText('');
+      input.focus();
     });
 
     renderFormattedText('');
